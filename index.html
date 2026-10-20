@@ -1,0 +1,45 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Choose Your Afternoon</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <header>
+        <h1>Choose Your Afternoon</h1>
+        <p>A small choice can change your day.</p>
+    </header>
+
+    <main>
+        <h2>How are you feeling today?</h2>
+        <p>Choose your mood and see what you can do!</p>
+
+        <div class="choices">
+            <button onclick="chooseMood('tired')">Tired</button>
+            <button onclick="chooseMood('bored')">Bored</button>
+            <button onclick="chooseMood('motivated')">Motivated</button>
+        </div>
+
+        <div id="result">
+            <h2 id="result-title">Your Afternoon</h2>
+            <p id="result-text">
+                Click a button to find out what happens next.
+            </p>
+        </div>
+
+        <p id="choice-count">Choices made: 0</p>
+    </main>
+
+    <footer>
+        <p>CCT360 - Interactive Webpage</p>
+    </footer>
+
+    <script src="script.js"></script>
+
+</body>
+</html>
