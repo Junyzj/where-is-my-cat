@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -14,12 +13,13 @@
         <h2>Where do you want to look?</h2>
 
         <div class="choices">
-            <button id="kitchen-btn" onclick="explore('kitchen')">🍪 Kitchen</button>
+            <button id="kitchen-btn" onclick="explore('kitchen')">🍞 Kitchen</button>
             <button id="garden-btn" onclick="explore('garden')">🌿 Garden</button>
             <button id="bedroom-btn" onclick="explore('bedroom')">🛏️ Bedroom</button>
         </div>
 
         <section class="result" aria-live="polite">
+            <img id="scene-image" src="images/cover-cat.jpg" alt="Orange cat" class="scene-image">
             <div id="scene-icon" class="scene-icon">🐾</div>
             <h2 id="result-title">Start Your Search</h2>
             <p id="result-text">Click a room to see what happens.</p>
