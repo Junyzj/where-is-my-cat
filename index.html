@@ -4,42 +4,123 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Choose Your Afternoon</title>
+    <title>Where Is My Cat? | An Interactive Story</title>
     <link rel="stylesheet" href="style.css">
 </head>
-
 <body>
 
-    <header>
-        <h1>Choose Your Afternoon</h1>
-        <p>A small choice can change your day.</p>
+    <header class="site-header">
+        <div class="page-width header-row">
+            <p class="logo">✦ LITTLE CAT STORIES</p>
+            <p class="class-note">CCT360 · INTERACTIVE STORY</p>
+        </div>
     </header>
 
-    <main>
-        <h2>How are you feeling today?</h2>
-        <p>Choose your mood and see what you can do!</p>
+    <main class="page-width">
+        <!-- Introduction -->
+        <section class="intro">
+            <div class="intro-text">
+                <p class="small-label">CHAPTER 01 / THE MYSTERY</p>
+                <h1>Where Is<br><span>My Cat?</span></h1>
+                <p class="lead">
+                    It's 4:12 p.m. You just got home. Your cat Miso's food bowl
+                    is full, but Miso is nowhere to be found.
+                </p>
+                <p class="intro-question">Can you find Miso before dinner?</p>
+                <a class="start-link" href="#locations">START SEARCHING ↓</a>
+            </div>
 
-        <div class="choices">
-            <button onclick="chooseMood('tired')">Tired</button>
-            <button onclick="chooseMood('bored')">Bored</button>
-            <button onclick="chooseMood('motivated')">Motivated</button>
-        </div>
+            <div class="cover-picture">
+                <img src="images/cover-cat.jpg" alt="A curious orange cat sitting in a cozy room">
+                <div class="picture-note">MISSING: MISO ♡</div>
+            </div>
+        </section>
 
-        <div id="result">
-            <h2 id="result-title">Your Afternoon</h2>
-            <p id="result-text">
-                Click a button to find out what happens next.
-            </p>
-        </div>
+        <!-- Choose a location -->
+        <section class="search-section" id="locations">
+            <div class="section-heading">
+                <div>
+                    <p class="small-label">CHAPTER 02 / THE SEARCH</p>
+                    <h2>Where will you look first?</h2>
+                    <p>Every room tells a different part of the story.</p>
+                </div>
+                <p class="step-note">CLICK A ROOM TO EXPLORE</p>
+            </div>
 
-        <p id="choice-count">Choices made: 0</p>
+            <div class="location-grid">
+                <button class="place-card" id="kitchen-button" type="button" onclick="searchCat('kitchen')">
+                    <img src="images/kitchen.jpg" alt="A cozy kitchen with a counter and a food bowl">
+                    <span class="card-body">
+                        <span class="card-number">01 / FIRST ROOM</span>
+                        <span class="card-title">The Kitchen <span aria-hidden="true">↗</span></span>
+                        <span class="card-subtitle">Maybe Miso wants a snack.</span>
+                        <span class="card-visited">✓ Already searched</span>
+                    </span>
+                </button>
+
+                <button class="place-card" id="garden-button" type="button" onclick="searchCat('garden')">
+                    <img src="images/garden.jpg" alt="Green plants and flowerpots in a small garden">
+                    <span class="card-body">
+                        <span class="card-number">02 / SECOND ROOM</span>
+                        <span class="card-title">The Garden <span aria-hidden="true">↗</span></span>
+                        <span class="card-subtitle">Maybe Miso went outside.</span>
+                        <span class="card-visited">✓ Already searched</span>
+                    </span>
+                </button>
+
+                <button class="place-card" id="bedroom-button" type="button" onclick="searchCat('bedroom')">
+                    <img src="images/bedroom.jpg" alt="A quiet bedroom with soft blankets">
+                    <span class="card-body">
+                        <span class="card-number">03 / THIRD ROOM</span>
+                        <span class="card-title">The Bedroom <span aria-hidden="true">↗</span></span>
+                        <span class="card-subtitle">Maybe Miso is taking a nap.</span>
+                        <span class="card-visited">✓ Already searched</span>
+                    </span>
+                </button>
+            </div>
+        </section>
+
+        <!-- The page remembers previous actions -->
+        <section class="case-file" aria-label="Your search progress">
+            <div class="case-heading">
+                <h2>Your Case File</h2>
+                <p>The page remembers what you have found.</p>
+            </div>
+            <div class="case-details">
+                <p><strong id="search-count">0</strong><span>Searches</span></p>
+                <p><strong id="room-count">0 / 3</strong><span>Rooms checked</span></p>
+                <p><strong id="clue-count">0 / 2</strong><span>Clues collected</span></p>
+            </div>
+            <div class="clues">
+                <span class="clue-label">YOUR CLUES:</span>
+                <span class="clue" id="kitchen-clue">○ Crumbs</span>
+                <span class="clue" id="garden-clue">○ Pawprints</span>
+            </div>
+        </section>
+
+        <!-- JavaScript changes this section after every choice -->
+        <section class="story-panel" id="story-panel" aria-live="polite" aria-atomic="true">
+            <div class="scene-picture">
+                <img id="scene-image" src="images/cover-cat.jpg" alt="The missing cat, Miso">
+            </div>
+            <div class="scene-text">
+                <p class="small-label" id="scene-label">YOUR STORY / NOT STARTED</p>
+                <h2 id="result-title">A mystery is waiting...</h2>
+                <p id="result-text">
+                    Choose one of the three rooms above. Look for clues and
+                    see how your decisions change the ending.
+                </p>
+                <p class="story-hint" id="story-hint">TIP: Try visiting the rooms in different orders.</p>
+                <button class="restart-button" type="button" onclick="restartStory()">↻ Start Over</button>
+            </div>
+        </section>
     </main>
 
-    <footer>
-        <p>CCT360 - Interactive Webpage</p>
+    <footer class="site-footer">
+        <p>A LITTLE INTERACTIVE MYSTERY · CCT360</p>
+        <p>Made with HTML, CSS & JavaScript ♡</p>
     </footer>
 
     <script src="script.js"></script>
-
 </body>
 </html>
